@@ -130,7 +130,7 @@ async function displayAlbums(){
     }
 
 async function mian() {
-    await getSongs("songs/ncs")
+    await getSongs("songs")
     playMusic(songs[0],true)
 
     //display all the albums on th page
