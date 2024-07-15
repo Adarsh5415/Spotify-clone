@@ -91,7 +91,7 @@ const playMusic=(track,pause=false)=>{
 
 async function displayAlbums(){
 
-    let a = await fetch(`songs/`);
+    let a = await fetch(`/songs/`);
     console.log("2nd time ",A)
     let response = await a.text();
     let div = document.createElement("div");
@@ -106,7 +106,7 @@ async function displayAlbums(){
     if (e.href.includes("/songs")) {
         let folder = e.href.split("/").slice(-2)[0]
         //Get the meta dta of the folder
-        let a = await fetch(`songs/${folder}/info.json`);
+        let a = await fetch(`/songs/${folder}/info.json`);
         console.log("3rd A",a)
         let response = await a.json();
         console.log(response);
