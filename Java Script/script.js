@@ -21,11 +21,14 @@ function secondsToMinutesSeconds(seconds){
 async function getSongs(folder) {
     currFolder = folder;
     let a = await fetch(`/songs/${folder}/`);
+    console.log("after 1st fetch"a)
     let response = await a.text();
     let div = document.createElement("div");
     div.innerHTML = response;
     let as = div.getElementsByTagName("a");
     songs = [];
+
+    console.log(songs)
 
     // console.log("Links found:", as);
 
@@ -89,6 +92,7 @@ const playMusic=(track,pause=false)=>{
 async function displayAlbums(){
 
     let a = await fetch(`/songs/`);
+    console.log("2nd time ",A)
     let response = await a.text();
     let div = document.createElement("div");
     div.innerHTML = response;
@@ -102,7 +106,8 @@ async function displayAlbums(){
     if (e.href.includes("/songs")) {
         let folder = e.href.split("/").slice(-2)[0]
         //Get the meta dta of the folder
-        let a = await fetch(`/songs/${folder}/info.json`);
+        let a = await fetch(`songs/${folder}/info.json`);
+        console.log("3rd A",a)
         let response = await a.json();
         console.log(response);
         cardContainer.innerHTML = cardContainer.innerHTML + `<div data-folder="${folder}"  class="card">
